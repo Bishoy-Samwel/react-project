@@ -5,7 +5,7 @@ import { configureStore } from './store.js';
 import App from './App.js'
 
 ReactDom.render(
-  <Provider store={ }>
+  <Provider store={ configureStore() }>
     <App />
   </Provider>,
   document.getElementById('root'));
