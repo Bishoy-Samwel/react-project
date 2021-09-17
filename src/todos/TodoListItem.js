@@ -13,7 +13,7 @@ const TodoListItem = ({ todo }) => {
                 <button
                     onClick={
                         () => {
-                            dispatch(removeTodo(todo.text));
+                            dispatch(removeTodo(todo.id));
                             }}
                     className="remove-button">Remove</button>
             </div>

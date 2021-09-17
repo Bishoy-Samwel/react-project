@@ -5,7 +5,10 @@ export const createTodo = text => ({
 });
 
 export const REMOVE_TODO = 'REMOVE_TODO';
-export const removeTodo = text => ({
+export const removeTodo = id => ({
   type: REMOVE_TODO,
-  payload: { text },
+  payload: { id },
 });
+
+export const MARK_COMPLETED = 'MARK_COMPLETED';
+// export const markCompleted = text  
