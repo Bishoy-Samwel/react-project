@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './NewTodoForm.css';
+import { useDispatch } from 'react-redux';
+import { createTodo } from './actions'
 
 const NewTodoForm = () => {
     const [inputValue, setInputValue] = useState('');
-
+    const dispatch = useDispatch();
     return (
         <div className="new-todo-form">
             <input
@@ -12,8 +14,16 @@ const NewTodoForm = () => {
                 placeholder="Type your new todo here"
                 value={inputValue}
                 onChange={e => setInputValue(e.target.value)} />
-            <button className="new-todo-button">Create Todo</button>
-        </div>
+            <button
+                onClick={
+                    () => {
+                        dispatch(createTodo(inputValue));
+                        setInputValue('');
+                    }}
+                className="new-todo-button">
+                Create Todo
+            </button>
+        </div >
     );
 };
 
