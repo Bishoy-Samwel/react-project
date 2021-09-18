@@ -15,3 +15,19 @@ export const checkStatus = id => ({
   type: CHECK_STATUS,
   payload: { id },
 });
+
+export const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';
+export const loadTodosInProgress = () => ({
+  type: LOAD_TODOS_IN_PROGRESS,
+});
+
+export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
+export const loadTodosSucess = () => ({
+  type: LOAD_TODOS_SUCCESS,
+  payload: { TODOS },
+});
+
+export const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
+export const loadTodosFailue = () => ({
+  type: LOAD_TODOS_FAILURE,
+});
