@@ -1,4 +1,4 @@
-import { CREATE_TODO, REMOVE_TODO } from './actions'
+import { CREATE_TODO, REMOVE_TODO, CHECK_STATUS } from './actions'
 import { v4 as uuidv4 } from 'uuid';
 export const todos = (state = [], action) => {
   const { type, payload } = action;
@@ -17,6 +17,16 @@ export const todos = (state = [], action) => {
     case REMOVE_TODO: {
       const { id } = payload;
       return state.filter(todo => todo.id !== id);
+    }
+
+    case CHECK_STATUS: {
+      console.log('hi');
+      const { id } = payload;
+      return state.map(todo => {
+        if (todo.id === id) { return { ...todo, isCompleted: true } }
+        return todo
+      });
+      
     }
 
     default:

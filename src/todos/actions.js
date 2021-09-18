@@ -10,5 +10,8 @@ export const removeTodo = id => ({
   payload: { id },
 });
 
-export const MARK_COMPLETED = 'MARK_COMPLETED';
-// export const markCompleted = text  
+export const CHECK_STATUS = 'CHECK_STATUS';
+export const checkStatus = id => ({
+  type: CHECK_STATUS,
+  payload: { id },
+});
