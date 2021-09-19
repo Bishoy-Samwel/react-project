@@ -1,4 +1,4 @@
-import { loadTodosSucess, loadTodosFailue, loadTodosInProgress } from './actions';
+import { loadTodosSucess, loadTodosFailure, loadTodosInProgress } from './actions';
 
 export const loadTodos = () => async (dispatch, getState) => {
   try {
@@ -8,7 +8,7 @@ export const loadTodos = () => async (dispatch, getState) => {
 
     dispatch(loadTodosSucess(todos));
   } catch (e) {
-    dispatch(loadTodosFailue())
+    dispatch(loadTodosFailure())
     dispatch(displayAlert(e))
   }
 }
