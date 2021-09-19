@@ -28,6 +28,6 @@ export const loadTodosSucess = () => ({
 });
 
 export const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
-export const loadTodosFailue = () => ({
+export const loadTodosFailure = () => ({
   type: LOAD_TODOS_FAILURE,
 });
