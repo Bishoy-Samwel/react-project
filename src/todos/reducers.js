@@ -28,13 +28,8 @@ export const todos = (state = [], action) => {
 
   switch (type) {
     case CREATE_TODO: {
-      const { text } = payload;
-      const newTodo = {
-        id: uuidv4(),
-        text,
-        isCompleted: false,
-      };
-      return state.concat(newTodo);
+      const { todo } = payload;
+      return state.concat(todo);
     }
 
     case REMOVE_TODO: {
@@ -43,7 +38,6 @@ export const todos = (state = [], action) => {
     }
 
     case CHECK_STATUS: {
-      console.log('hi');
       const { id } = payload;
       return state.map(todo => {
         if (todo.id === id) { return { ...todo, isCompleted: true } }
