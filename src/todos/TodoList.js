@@ -16,12 +16,12 @@ const TodoList = () => {
 
     const loadingMessage = <div> Loading todos...</div>;
     const content = (todos) =>
-    (<div className="list-wrapper">
-        <NewTodoForm />
-        {todos.map(todo => <TodoListItem todo={todo} />)}
-    </div>);
-    if (Array.isArray(isLoading)) {
-        return content(isLoading)
+        (<div className="list-wrapper">
+            <NewTodoForm />
+            {todos.map(todo => <TodoListItem key={todo.id} todo={todo} />)}
+        </div>);
+    if ((!isLoading)) {
+        return content(todos)
     }
     else {
         return loadingMessage;
