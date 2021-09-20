@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './NewTodoForm.css';
 import { useDispatch } from 'react-redux';
-import { createTodo } from './actions'
-
+import { addTodoRequest } from './thunks';
 const NewTodoForm = () => {
     const [inputValue, setInputValue] = useState('');
     const dispatch = useDispatch();
@@ -17,7 +16,7 @@ const NewTodoForm = () => {
             <button
                 onClick={
                     () => {
-                        dispatch(createTodo(inputValue));
+                        dispatch(addTodoRequest(inputValue));
                         setInputValue('');
                     }}
                 className="new-todo-button">
