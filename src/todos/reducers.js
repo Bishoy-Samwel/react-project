@@ -33,8 +33,8 @@ export const todos = (state = [], action) => {
     }
 
     case REMOVE_TODO: {
-      const { id } = payload;
-      return state.filter(todo => todo.id !== id);
+      const { todo: todoToRemove } = payload;
+      return state.filter(todo => todo.id !== todoToRemove.id);
     }
 
     case CHECK_STATUS: {
@@ -45,8 +45,7 @@ export const todos = (state = [], action) => {
       });
 
     }
-    case LOAD_TODOS_SUCCESS: { 
-      console.log(todos); 
+    case LOAD_TODOS_SUCCESS: {
       const { todos } = payload;
       return todos;
     }
