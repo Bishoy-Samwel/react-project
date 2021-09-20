@@ -15,6 +15,7 @@ export const isLoading = (state= false, action) => {
     case LOAD_TODOS_IN_PROGRESS:
       return true;
     case LOAD_TODOS_SUCCESS:
+      return action.payload.TODOS
     case LOAD_TODOS_FAILURE:
       return false;
     default: 
