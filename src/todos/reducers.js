@@ -1,24 +1,24 @@
-import { 
-  CREATE_TODO, 
-  REMOVE_TODO, 
+import {
+  CREATE_TODO,
+  REMOVE_TODO,
   CHECK_STATUS,
   LOAD_TODOS_IN_PROGRESS,
   LOAD_TODOS_SUCCESS,
-  LOAD_TODOS_FAILURE } from './actions'
+  LOAD_TODOS_FAILURE
+} from './actions'
 import { v4 as uuidv4 } from 'uuid';
 
 
-export const isLoading = (state= false, action) => {
+export const isLoading = (state = false, action) => {
   const { type } = action;
 
   switch (type) {
     case LOAD_TODOS_IN_PROGRESS:
       return true;
     case LOAD_TODOS_SUCCESS:
-      return action.payload.TODOS
     case LOAD_TODOS_FAILURE:
       return false;
-    default: 
+    default:
       return state;
   }
 }
@@ -51,7 +51,13 @@ export const todos = (state = [], action) => {
       });
 
     }
-
+    case LOAD_TODOS_SUCCESS: { 
+      console.log(todos); 
+      const { todos } = payload;
+      return todos;
+    }
+    case LOAD_TODOS_IN_PROGRESS:
+    case LOAD_TODOS_FAILURE:
     default:
       return state;
   }

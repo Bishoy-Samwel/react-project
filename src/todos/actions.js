@@ -22,9 +22,9 @@ export const loadTodosInProgress = () => ({
 });
 
 export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
-export const loadTodosSuccess = TODOS => ({
+export const loadTodosSuccess = todos => ({
   type: LOAD_TODOS_SUCCESS,
-  payload: { TODOS },
+  payload: { todos },
 });
 
 export const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
