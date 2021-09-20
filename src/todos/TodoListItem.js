@@ -1,8 +1,7 @@
 import React from 'react';
 import './TodoListItem.css';
 import { useDispatch } from 'react-redux';
-import { removeTodo, checkStatus } from './actions'
-import { removeTodoRequest } from './thunks';
+import { markCompletedRequest, removeTodoRequest } from './thunks';
 
 const TodoListItem = ({ todo }) => {
     const dispatch = useDispatch();
@@ -13,7 +12,7 @@ const TodoListItem = ({ todo }) => {
             {todo.isCompleted? null:
                 <button onClick={
                     () => {
-                        dispatch(checkStatus(todo.id));
+                        dispatch(markCompletedRequest(todo.id));
                         console.log(todo.isCompleted);
                     }}
                     className="completed-button">Mark As Completed</button>}

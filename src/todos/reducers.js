@@ -38,9 +38,9 @@ export const todos = (state = [], action) => {
     }
 
     case CHECK_STATUS: {
-      const { id } = payload;
+      const { updatedTodo } = payload;
       return state.map(todo => {
-        if (todo.id === id) { return { ...todo, isCompleted: true } }
+        if (todo.id === updatedTodo.id) { return updatedTodo }
         return todo
       });
 

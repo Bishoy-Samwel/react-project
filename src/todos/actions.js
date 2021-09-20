@@ -11,9 +11,9 @@ export const removeTodo = todo => ({
 });
 
 export const CHECK_STATUS = 'CHECK_STATUS';
-export const checkStatus = id => ({
+export const checkStatus = updatedTodo => ({
   type: CHECK_STATUS,
-  payload: { id },
+  payload: { updatedTodo },
 });
 
 export const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';
