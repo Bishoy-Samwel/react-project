@@ -25,7 +25,7 @@ export const isLoading = (state = false, action) => {
 
 export const todos = (state = [], action) => {
   const { type, payload } = action;
-
+  
   switch (type) {
     case CREATE_TODO: {
       const { todo } = payload;

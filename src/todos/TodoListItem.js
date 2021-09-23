@@ -13,7 +13,6 @@ const TodoListItem = ({ todo }) => {
                 <button onClick={
                     () => {
                         dispatch(markCompletedRequest(todo.id));
-                        console.log(todo.isCompleted);
                     }}
                     className="completed-button">Mark As Completed</button>}
                 <button
