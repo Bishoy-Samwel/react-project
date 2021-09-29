@@ -17,16 +17,16 @@ const TodoList = () => {
 
     const loadingMessage = <div> Loading todos...</div>;
     const content = (todos) =>
-    (<div className="list-wrapper">
-        <NewTodoForm />
+    (<div>
         {todos.map(todo => <TodoListItem key={todo.id} todo={todo} />)}
     </div>);
     if ((!isLoading)) {
 
-        return <div>
-            Uncompleted Todos
+        return <div className="list-wrapper">
+            <NewTodoForm />
+            <h3>Incomplet:</h3>
             {content(uncompletedTodos)}
-            Completed todos
+            <h3>completed:</h3>
             {content(completedTodos)}
         </div>
     }
