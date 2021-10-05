@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import NewTodoForm from './NewTodoForm';
 import TodoListItem from './TodoListItem';
-import './TodoList.css';
-import { useSelector, shallowEqual } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { loadTodos } from './thunks'
 import { useDispatch } from 'react-redux';
 import { selectCompletedTodos, selectInCompletedTodos, loading } from './selectors';
+import styled from 'styled-components';
+
+const ListWrapper= styled.div`
+max-width: 700px;
+    margin: auto;
+    `
 
 const TodoList = () => {
     const dispatch = useDispatch();
@@ -22,13 +27,13 @@ const TodoList = () => {
     </div>);
     if ((!isLoading)) {
 
-        return <div className="list-wrapper">
+        return <ListWrapper>
             <NewTodoForm />
             <h3>Incomplet:</h3>
             {content(uncompletedTodos)}
             <h3>completed:</h3>
             {content(completedTodos)}
-        </div>
+        </ListWrapper>
     }
     else {
         return loadingMessage;
