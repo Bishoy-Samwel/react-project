@@ -11,7 +11,7 @@ const TodoItemContainer = styled.div`
     position: relative;
     box-shadow: 0 4px 8px grey;
     `
-const getBorderStyleForDate = (start, current) =>
+export const getBorderStyleForDate = (start, current) =>
 (new Date(start) > new Date(current - 8640000 * 5) ?
     'none' : '2px solid red');
 
