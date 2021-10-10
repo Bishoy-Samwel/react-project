@@ -11,11 +11,12 @@ const TodoItemContainer = styled.div`
     position: relative;
     box-shadow: 0 4px 8px grey;
     `
+export const getBorderStyleForDate = (start, current) =>
+(new Date(start) > new Date(current - 8640000 * 5) ?
+    'none' : '2px solid red');
+
 const TododoItemContainerWarning = styled(TodoItemContainer)`
-    border-bottom: ${props => (new Date(props.createdAt) > new Date(Date.now() - 8640000 * 5)
-    ? 'none'
-    : '2px solid red')};   
-`
+    border-bottom: ${props => getBorderStyleForDate(props.createdAt, Date.now())}; `
 
 const ButtonsContainer = styled.div`
 position: absolute;
@@ -44,7 +45,7 @@ margin-left: 8px;
 
 const TodoListItem = ({ todo }) => {
     const dispatch = useDispatch();
-    const Container = todo.isCompleted?  TodoItemContainer : TododoItemContainerWarning
+    const Container = todo.isCompleted ? TodoItemContainer : TododoItemContainerWarning
     return (
         <Container createdAt={todo.createdAt}>
             <h3>{todo.text}</h3>
